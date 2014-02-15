@@ -1,10 +1,10 @@
 SocialMediaLeague::Application.routes.draw do
   resources :teams
 
-  resources :users do
-    resources :pages
-    resources :posts
-    resources :behaviors
+  resources :users, only: [:show, :index] do
+    resources :pages, only: [:show, :index]
+    resources :posts, only: [:show, :index]
+    resources :behaviors, only: [:show, :index]
   end
 
 match '/login', to: 'sessions#login', as: :login, via: 'get'

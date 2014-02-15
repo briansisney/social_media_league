@@ -42,9 +42,9 @@ gem "figaro"
 group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'pry'
 end
 
-gem 'pry'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

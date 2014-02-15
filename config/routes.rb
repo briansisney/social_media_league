@@ -1,13 +1,16 @@
 SocialMediaLeague::Application.routes.draw do
   resources :teams
-  
+
   resources :users do
     resources :pages
     resources :posts
     resources :behaviors
   end
 
-  
+match '/login', to: 'sessions#login', as: :login, via: 'get'
+
+root 'welcome#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

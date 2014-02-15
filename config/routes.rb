@@ -1,4 +1,13 @@
 SocialMediaLeague::Application.routes.draw do
+  resources :teams
+  
+  resources :users do
+    resources :pages
+    resources :posts
+    resources :behaviors
+  end
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

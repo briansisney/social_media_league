@@ -8,7 +8,7 @@ SocialMediaLeague::Application.routes.draw do
   end
 
 match '/login', to: 'sessions#login', as: :login, via: 'get'
-
+match '/auth_step', to: 'sessions#auth_step', as: :auth_step, via: 'get'
 root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

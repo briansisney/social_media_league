@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="topnav">
+    <span>Social Media League IMG goes here</span>
+    <div id="userbox">
+      <% if current_user %>
+        <span>Welcome <%= current_user.name %>&nbsp;|&nbsp;<%= link_to "Dashboard", current_user %>&nbsp;|&nbsp;</span>
+        <% else %>
+        <span><%= link_to "Login With FaceBook", login_path %></span>
+      <% end %>
+    </div>
+  </div>
 
 <%= yield %>
 

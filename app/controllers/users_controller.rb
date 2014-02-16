@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @leaders = TopMembersQuery.new.leaderboard_hash
   end
 
 end

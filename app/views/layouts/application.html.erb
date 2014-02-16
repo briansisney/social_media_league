@@ -10,20 +10,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="page-header">
-    <nav>
-      <div id="logo">
-        <%= image_tag "logo.png" %><h1 id="img"><small>Social Media League</small></h1>
-      </div>
-      <div id="userbox">
-        <% if current_user %>
-          <span>Welcome <%= current_user.name %>&nbsp;|&nbsp;<%= link_to "Dashboard", current_user %>&nbsp;|&nbsp;</span>
-          <% else %>
-          <span><%= link_to "Login With FaceBook", login_path %></span>
-        <% end %>
-      </div>
-    </nav>
-  </div>
 
 <%= yield %>
 

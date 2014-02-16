@@ -11,11 +11,14 @@
  *= require_self
  *= require_tree .
  */
-
+body {
+  margin: 0;
+}
 .page-header {
+  background-color: rgba(0, 0, 0, .85);
   margin-top: -20px;
-  background-color: rgb(15, 148, 192);
   color:white;
+  border: none;
   #logo {
     padding: 1em;
     display: inline-block;
@@ -28,21 +31,19 @@
     h1 {
       display:inline;
       margin-left: 1em;
-      small {
-        color:white;
-      }
+      color:white;
+
     }
   }
   #userbox {
     padding: 1em;
     float: right;
     margin: 4.1em 5% 0 0;
-    a {
-      color:white;
-      text-decoration: none;
-    }
+
   }
 }
+
+
 
 #dashboard-nav {
   position: fixed;
@@ -53,59 +54,195 @@
   background-color: rgb(15, 148, 192);
 }
 
-#body {
-  text-align: center;
-  #center {
-    #leaderboard {
+#wrap {
+  background-color: #407EC1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 
-      .leaderbox {
-        width: 20%;
-        display: inline-block;
-      }
-    }
-    #charts {
-        min-height: 300px;
-        width: 90%;
-        margin:auto;
-      .thumbnail {
-        #placeholder {
-          height: 300px;
-          margin:auto;
-          text-align:center;
-        }
-        .color {
-          background-color: #97BBCD;
-        }
-        .color2 {
-          background-color: #DCDCDC;
-        }
-        p {
-          display: inline-block;
-          &:last-child {
-            margin-left:.5em;
-          }
+div {
+  text-align: center;
+  margin: auto;
+  &.landing {
+  }
+  #center {
+   border-radius: 10px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+
+    /*landing page*/
+    #landing {
+      margin-top: 15%;
+      height:29em;
+      padding: 1em;
+     #logo {
+      float:left;
+      margin-right:5em;
+        img {
+          margin-top: 2em;
+          height:25em;
+          width:25em;
         }
       }
     }
-    #activity {
-      .opp {
-        margin: auto;
-        width: 80%;
-        .up-to-date {
-          text-align: center;
-        }
+    #tagline {
+      padding-top: 2em;
+      background-color: white;
+      height: 28em;
+      #message {
+        margin-top: 2em;
+        font-size: 20px;
       }
-      .action-opportunity {
-        text-align: left;
-        h2 {
-          display: inline-block;
-          a {}
-          &:last-child {
-            float: right;
-          }
-        }
+    }
+    #login {
+      margin-top: 5em;
+      a {
+      margin-top:2em;
+        padding: 1em;
+        border-radius: 10px;
+        color:white;
+        text-decoration: none;
+        box-shadow: 3px 4px gray;
+        background-color: #427FC1;
       }
     }
   }
 }
 
+    /*Dashboard*/
+
+body {
+   font:1em/1.2em 'Arial',sans-serif;
+   padding:0;margin:0;
+}
+.w {
+   width: 100%;
+}
+.header {
+   background: url(top-back.png) repeat-x;
+   height: 51px;
+   width: 100%;
+}
+   .header .title {
+       text-align:center;color:white;
+       font-size:1.3em;
+       padding:15px;
+   }
+   .header .team-name {
+       background: url(top-left.png) repeat-x;
+       padding:15px;
+       float:left;
+       width: 170px;
+       color:white;
+   }
+
+.main {
+   width: 100%;
+}
+   .main .menu {
+       width:200px;
+       background-color:#4C4F55;
+
+       float:left;
+   }
+       .main .menu ul {
+           list-style: none;
+           padding:0;margin:15px;
+       }
+       .main .menu > ul > li {
+           border-bottom: 2px solid black;
+           padding-bottom:10px;
+       }
+       .main .menu ul ul {
+           margin: 0 0 0 20px;
+       }
+       .main .menu li {
+           margin: 5px 0 5px 0;
+       }
+   .main .menu a {
+       color:white;
+       text-decoration:none;
+   }
+   .main .content {
+       background-color:white;
+   }
+.content .team-name {
+   font-size:1.3em;
+   line-height:1.9em;
+   padding:10px;
+}
+   .content .team-name img {
+       margin: 0 15px;float:left;
+   }
+.content .col1 {
+   width: 25%;
+}
+.content .col2 {
+   width: 55%;
+}
+.content .col3 {
+   width: 80%;
+}
+.content hr {
+   border:2px solid black;padding:0;margin:0;
+   width:80%;
+}
+
+.container {
+   border-bottom:15px solid #666666;
+   float:left;
+   margin:15px 5px;
+   font-size:1em;
+}
+
+.container .title {
+   background-color:#333333;
+   color:white;
+   padding:3px;
+}
+.container ul {
+   list-style:none;
+   margin:0;padding:0;
+}
+ul.posterlist li {
+   margin:0 1px;padding:3px;color:white;
+}
+ul.posterlist li:nth-child(5n+0) {
+   background-color:#FFCC9D;
+}
+ul.posterlist li:nth-child(5n+1) {
+   background-color:#D098FB;
+}
+ul.posterlist li:nth-child(5n+2) {
+   background-color:#93CC9C;
+}
+ul.posterlist li:nth-child(5n+3) {
+   background-color:#46E0FD;
+}
+ul.posterlist li:nth-child(5n+4) {
+   background-color:#FF6669;
+}
+
+.leaderboard ul li {
+   margin:0 1px;padding:3px;color:white;
+}
+.leaderboard ul li:nth-child(5n+0) {
+   background-color:#FFCC9D;
+}
+.leaderboard ul li:nth-child(5n+1) {
+   background-color:#D098FB;
+}
+.leaderboard ul li:nth-child(5n+2) {
+   background-color:#93CC9C;
+}
+.leaderboard ul li:nth-child(5n+3) {
+   background-color:#46E0FD;
+}
+.leaderboard ul li:nth-child(5n+4) {
+   background-color:#FF6669;
+}

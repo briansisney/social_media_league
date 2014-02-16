@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $('#login a')
+  .mousedown(function() {
+    $(this).css('box-shadow', 'none');
+  })
+  .mouseup(function() {
+    $(this).css('box-shadow', '3px 4px gray')
+  })
+})
+

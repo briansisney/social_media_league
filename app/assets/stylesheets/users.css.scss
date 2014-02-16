@@ -1,3 +1,134 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+   font:1em/1.2em 'Arial',sans-serif;
+   padding:0;margin:0;
+}
+.w {
+   width: 100%;
+}
+.header {
+   background: url(top-back.png) repeat-x;
+   height: 51px;
+   width: 100%;
+}
+   .header .title {
+       text-align:center;color:white;
+       font-size:1.3em;
+       padding:15px;
+   }
+   .header .team-name {
+       background: url(top-left.png) repeat-x;
+       padding:15px;
+       float:left;
+       width: 170px;
+       color:white;
+   }
+
+.main {
+   width: 100%;
+}
+   .main .menu {
+       width:200px;
+       background-color:#4C4F55;
+
+       float:left;
+   }
+       .main .menu ul {
+           list-style: none;
+           padding:0;margin:15px;
+       }
+       .main .menu > ul > li {
+           border-bottom: 2px solid black;
+           padding-bottom:10px;
+       }
+       .main .menu ul ul {
+           margin: 0 0 0 20px;
+       }
+       .main .menu li {
+           margin: 5px 0 5px 0;
+       }
+   .main .menu a {
+       color:white;
+       text-decoration:none;
+   }
+   .main .content {
+       background-color:white;
+   }
+.content .team-name {
+   font-size:1.3em;
+   line-height:1.9em;
+   padding:10px;
+}
+   .content .team-name img {
+       margin: 0 15px;float:left;
+   }
+.content .col1 {
+   width: 25%;
+}
+.content .col2 {
+   width: 55%;
+}
+.content .col3 {
+   width: 80%;
+}
+.content hr {
+   border:2px solid black;padding:0;margin:0;
+   width:80%;
+}
+
+.container {
+   border-bottom:15px solid #666666;
+   float:left;
+   margin:15px 5px;
+   font-size:1em;
+}
+
+.container .title {
+   background-color:#333333;
+   color:white;
+   padding:3px;
+}
+.container ul {
+   list-style:none;
+   margin:0;padding:0;
+}
+ul.posterlist li {
+   margin:0 1px;padding:3px;color:white;
+}
+ul.posterlist li:nth-child(5n+0) {
+   background-color:#FFCC9D;
+}
+ul.posterlist li:nth-child(5n+1) {
+   background-color:#D098FB;
+}
+ul.posterlist li:nth-child(5n+2) {
+   background-color:#93CC9C;
+}
+ul.posterlist li:nth-child(5n+3) {
+   background-color:#46E0FD;
+}
+ul.posterlist li:nth-child(5n+4) {
+   background-color:#FF6669;
+}
+
+.leaderboard ul li {
+   margin:0 1px;padding:3px;color:white;
+}
+.leaderboard ul li:nth-child(5n+0) {
+   background-color:#FFCC9D;
+}
+.leaderboard ul li:nth-child(5n+1) {
+   background-color:#D098FB;
+}
+.leaderboard ul li:nth-child(5n+2) {
+   background-color:#93CC9C;
+}
+.leaderboard ul li:nth-child(5n+3) {
+   background-color:#46E0FD;
+}
+.leaderboard ul li:nth-child(5n+4) {
+   background-color:#FF6669;
+}

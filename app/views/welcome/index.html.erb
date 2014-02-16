@@ -1,117 +1,97 @@
-<% if current_user %>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<div class="container" id="body">
+<!-- <div id="wrap">
+  <div class="container" id="body">
   <div id="center">
-    <div id="leaderboard">
-      <div class="row">
-        <h1>&quot;Team Name&quot; Leaders</h1>
+    <div id="landing">
+      <div id="logo">
+        <%= image_tag 'logo.png' %>
       </div>
-      <div class="leaderbox thumbnail">
-        <h3>Top Poster:</h3>
-        <h5>John Doe</h5>
-        <p>21 posts</p>
-      </div>
-      <div class="leaderbox thumbnail">
-        <h3>Top Poster:</h3>
-        <h5>John Doe</h5>
-        <p>21 posts</p>
-      </div>
-      <div class="leaderbox thumbnail">
-        <h3>Top Poster:</h3>
-        <h5>John Doe</h5>
-        <p>21 posts</p>
-      </div>
-    </div>
-    <div id="charts">
-        <div id="placeholder">
-        </div>
-        <div>
-          <p>
-            <form>
-              <label>Likes
-              <input class="filter" type="checkbox" value="Likes" checked="checked">
-              </label>
-              <label>Shares
-              <input class="filter" type="checkbox" value="Shares" checked="checked">
-              </label>
-            </form>
-          </p>
-        </div>
-    </div>
-    <div id="activity">
-      <div class="row">
-        <h1>Action Opportunities</h1>
-      </div>
-      <div class="opp">
-        <% if @opportunities %>
-          <% @opportunities.each do |opp| %>
-          <div class="row action-opportunity">
-            <h2><%= opp[0] %> made a <%= opp[1] %> which you haven't <%= opp[2] %>&nbsp;</h2><h2><small><a href="#" target="new">Take action</a></small></h2>
-          </div>
-          <% end %>
-          <% else %>
-            <div class="row up-to-date">
-              <h2>You're all up to date!</h2>
-            </div>
-        <% end %>
+    <div id="tagline">
+      <h1>Join the League.  Win at business.</h1>
+      <p id="message">Work with a team of business owners to share referrals and learn new skills while you rise through the ranks to become a social media champion.</p>
+      <p id="login"><%= link_to "Login With FaceBook", login_path %></p>
       </div>
     </div>
   </div>
 </div>
-<script>
-var shares = {id: "Shares",
-            name: 'Shares',
-            data: [2, 1, 2,8,3,1,2,2],
-            pointStart: Date.UTC(2010, 0, 1),
-            pointInterval: 24 * 3600 * 1000};
+</div>
+ -->
 
-var likes = {
-            id: "Likes",
-            name: 'Likes',
-            data: [1, 0, 4,6,3,0,1,5],
-            pointStart: Date.UTC(2010, 0, 1),
-            pointInterval: 24 * 3600 * 1000
-        }
+    <div class="w">
+        <div class="header">
+            <div class="team-name">The Weird Ones</div>
+            <div class="title">Dashboard</div>
+        </div>
+        <div class="main">
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Metrics</a>
+                        <ul><li><a href="#">Posts</a></li>
+                            <li><a href="#">Likes</a></li>
+                            <li><a href="#">Comments</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Leaderboards</a>
+                        <ul>
+                            <li><a href="#">National</a></li>
+                            <li><a href="#">In-Team</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Trophies</a>
+                        <ul><li><a href="#">Awards</a></li>
+                            <li><a href="#">Badges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
 
-$(document).ready(function() {
-   $('#placeholder').highcharts({
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: 'Actions'
-        },
-        xAxis: {
-            type: 'datetime',
-            dateTimeLabelFormats: {
-                day: '%e of %b',
-            }
-        },
-        yAxis: {
-          title: "Likes, Shares",
-          minRange: 5,
-                min: 0
-        },
-        series: [shares, likes],
-    });
+            </div>
+            <div class="content">
+                <div class="team-name">
+                    <img src="team-logo.png" width="45" height="41" />The Weird Ones
+                </div>
+                <div class="row">
+                    <div class="container col1 top-posters">
+                        <div class="title">Top Posters</div>
+                        <ul class="posterlist">
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                        </ul>
+                    </div>
+                    <div class="container col1 top-post">
+                        <div class="title">Top Post</div>
+                    </div>
+                    <div class="container col1 overview">
+                        <div class="title">Overview</div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="chart container col3">
+                        <div class="title">Engagement Over Time</div>
 
-   $('.filter').click(function() {
-    var chart = $('#placeholder').highcharts();
-    var seriesName = $(this).val();
-    if ($(this).attr('checked') == "checked") {
-      $(this).attr('checked', false);
-      chart.get(seriesName).hide();
-    } else {
-      $(this).attr('checked', true);
-      chart.get(seriesName).show();
-    }
-  });
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="container leaderboard col2">
+                        <div class="title">Leaderboard</div>
+                        <ul class="posterlist">
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                            <li>Name 1</li>
+                        </ul>
+                    </div>
+                    <div class="container opportunities col1">
+                        <div class="title">Opportunities</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  $('.filter:checked').each(function() {
-
-  });
-
-   $('tspan:contains("Highcharts.com")').text("");
-})
-</script>
-<% end %>
+    </div>

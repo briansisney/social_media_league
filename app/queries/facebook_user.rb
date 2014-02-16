@@ -45,6 +45,8 @@ private
         Page.create(facebook_id: entry.from.id, user_id: 1) 
       elsif entry.from.id == "668435613"
         Page.create(facebook_id: entry.from.id, user_id: 2) 
+      elsif entry.from.id == "100000886882187"
+        Page.create(facebook_id: entry.from.id, user_id: 3)
       else
         Page.create(facebook_id: entry.from.id)      
       end       

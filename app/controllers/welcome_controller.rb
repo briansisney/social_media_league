@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
     if session[:userapp_token]
       user = FacebookUser.new(session[:userapp_token])
       user.get_feed
+      user.parse_data
     end
   end
 

@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
         user_result=api.user.get(user_id: "self")
         session[:userapp_id] = user_result[0].user_id
         session[:userapp_token] = userapp_token
+        binding.pry
         redirect_to root_url
     rescue UserApp::ServiceError => error
         redirect_to user_behaviors_path

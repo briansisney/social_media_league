@@ -7,47 +7,47 @@ class FacebookUser
     graph_result =@api.oauth.request(provider_id: "facebook", user_id: "self", method: "get", path: "/me/feed")
     if graph_result.status_code = 200
       @data = graph_result.body.data 
-      binding.pry
     end 
   end 
 
   #TODO create User and Page registration controller
 
   def parse_data
-    #TODO: need to validate that there are only one entry
 
     #TODO: only save if user is in your team
 
     @data.each do |entry|
       page = find_page(entry)
-      
-      post = Post.where(entry_id: entry.id)
-      unless post
-        post = Post.create(page_id: page, entry_id: entry.id, type: entry.type)
-      end 
+
+      post = find_post(entry, page)
 
       add_likes(entry, post)
 
       add_comments(entry, post)
 
-      add_tag(entry, post)
-      
+      add_tag(entry, post)  
     end
-
   end
-
-#when join, create page.
-
 
 private
   def find_page(entry) 
-      Page.where(user_id: entry.from.id)    
+    unless Page.where(facebook_id: entry.from.id).first 
+      Page.create(facebook_id: entry.from.id)        
+    end
+    Page.where(facebook_id: entry.from.id).first  
+  end
+
+  def find_post(entry, page) 
+    unless Post.where(entry_id: entry.id).first
+      Post.create(page_id: page, entry_id: entry.id, post_type: entry.type)
+    end
+    Post.where(entry_id: entry.id).first
   end
 
   def add_tag(entry, post)
     if entry.message_tags
       entry.message_tags.each_pair do |key, value|
-        Behavior.create(post_id: post, type: "tag", facebook_id: value[0].id )
+        Behavior.create(post_id: post, behavior_type: "tag", facebook_id: value[0].id )
       end
     end
   end
@@ -55,7 +55,7 @@ private
   def add_likes(entry, post)
     if entry.likes
       entry.likes.data.each do |user|
-        Behavior.create(post_id: post, type: "like", facebook_id: user.id )
+        Behavior.create(post_id: post, behavior_type: "like", facebook_id: user.id )
       end
     end
   end
@@ -63,7 +63,7 @@ private
   def add_comments(entry, post)
     if entry.comments
       entry.comments.data.each do |user|
-        Behavior.create(post_id: post, type: "comment", facebook_id: user.from.id )
+        Behavior.create(post_id: post, behavior_type: "comment", facebook_id: user.from.id )
       end
     end
   end

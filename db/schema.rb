@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20140215185039) do
   create_table "behaviors", force: true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
-    t.string   "type"
+    t.string   "behavior_type"
+    t.string   "facebook_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140215185039) do
   create_table "pages", force: true do |t|
     t.integer  "user_id"
     t.string   "type"
+    t.string   "facebook_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,7 +40,8 @@ ActiveRecord::Schema.define(version: 20140215185039) do
 
   create_table "posts", force: true do |t|
     t.integer  "page_id"
-    t.string   "text"
+    t.string   "entry_id"
+    t.string   "post_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

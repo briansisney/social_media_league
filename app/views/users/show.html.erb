@@ -31,7 +31,7 @@
             </div>
             <div class="content">
                 <div class="team-name">
-                    <img src="team-logo.png" width="45" height="41" />The Weird Ones
+                    <%=  image_tag("team-logo.png", width:"45", height:"41") %>The Weird Ones
                 </div>
                 <div class="row">
                     <div class="container col1 top-posters">
@@ -42,11 +42,6 @@
 
                             </li>
                             <% end %>
-                            
-                            <li>Name 1</li>
-                            <li>Name 1</li>
-                            <li>Name 1</li>
-                            <li>Name 1</li>
                         </ul>
                     </div>
                     <div class="container col1 top-post">
@@ -75,9 +70,9 @@
                     </div>
                     <div class="container badges col1">
                         <div class="title">Badges</div>
-                        <img src="badge2.png" width="125" />
-                        <img src="badge3.png" width="125" />
-                        <img src="badge4.png" width="125" />
+                        <%= image_tag("badge2.png", width:"125") %>
+                        <%= image_tag("badge3.png", width:"125") %>
+                        <%= image_tag("badge4.png", width:"125") %>
                     </div>
                 </div>
             </div>

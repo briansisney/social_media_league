@@ -6,7 +6,7 @@ body {
    width: 100%;
 }
 .header {
-   background: url(top-back.png) repeat-x;
+   background: url('top-back.png') repeat-x;
    height: 51px;
    width: 100%;
 }
@@ -16,7 +16,7 @@ body {
        padding:15px;
    }
    .header .team-name {
-       background: url(top-left.png) repeat-x;
+       background: url('top-left.png') repeat-x;
        padding:15px;
        float:left;
        width: 170px;

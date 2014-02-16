@@ -41,16 +41,8 @@ class FacebookUser
 private
   def find_page(entry) 
     unless Page.where(facebook_id: entry.from.id).first 
-      if entry.from.id == "935194"
-        Page.create(facebook_id: entry.from.id, user_id: 1) 
-      elsif entry.from.id == "668435613"
-        Page.create(facebook_id: entry.from.id, user_id: 2) 
-      elsif entry.from.id == "100000886882187"
-        Page.create(facebook_id: entry.from.id, user_id: 3)
-      else
         Page.create(facebook_id: entry.from.id)      
       end       
-    end
     Page.where(facebook_id: entry.from.id).first  
   end
 

@@ -20,7 +20,6 @@ class FacebookUser
   #TODO create User and Page registration controller
 
   def parse_data
-
     #TODO: only save if user is in your team
 
     @data.each do |entry|
@@ -28,18 +27,27 @@ class FacebookUser
 
       post = find_post(entry, page)
 
-      add_likes(entry, post)
+      # user_id = Page.where(id: post.page_id).take.user_id
+      user_id = page.user_id
 
-      add_comments(entry, post)
+      add_likes(entry, post, user_id)
 
-      add_tag(entry, post)  
+      add_comments(entry, post, user_id)
+
+      add_tag(entry, post, user_id)  
     end
   end
 
 private
   def find_page(entry) 
     unless Page.where(facebook_id: entry.from.id).first 
-      Page.create(facebook_id: entry.from.id)        
+      if entry.from.id == "935194"
+        Page.create(facebook_id: entry.from.id, user_id: 1) 
+      elsif entry.from.id == "668435613"
+        Page.create(facebook_id: entry.from.id, user_id: 2) 
+      else
+        Page.create(facebook_id: entry.from.id)      
+      end       
     end
     Page.where(facebook_id: entry.from.id).first  
   end
@@ -52,26 +60,27 @@ private
     Post.where(entry_id: entry.id).first
   end
 
-  def add_tag(entry, post)
+  def add_tag(entry, post, user_id)
     if entry.message_tags
       entry.message_tags.each_pair do |key, value|
-        Behavior.create(post_id: post.id, behavior_type: "tag", facebook_id: value[0].id )
+        
+        Behavior.create(post_id: post.id, behavior_type: "tag", facebook_id: value[0].id, user_id: user_id)
       end
     end
   end
 
-  def add_likes(entry, post)
+  def add_likes(entry, post, user_id)
     if entry.likes
       entry.likes.data.each do |user|
-        Behavior.create(post_id: post.id, behavior_type: "like", facebook_id: user.id )
+        Behavior.create(post_id: post.id, behavior_type: "like", facebook_id: user.id, user_id: user_id )
       end
     end
   end
 
-  def add_comments(entry, post)
+  def add_comments(entry, post, user_id)
     if entry.comments
       entry.comments.data.each do |user|
-        Behavior.create(post_id: post.id, behavior_type: "comment", facebook_id: user.from.id )
+        Behavior.create(post_id: post.id, behavior_type: "comment", facebook_id: user.from.id, user_id: user_id )
       end
     end
   end

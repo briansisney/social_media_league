@@ -64,9 +64,11 @@ body {
   z-index: -1;
 }
 
-div {
+#body {
   text-align: center;
   margin: auto;
+  float: none;
+  border: none;
   &.landing {
   }
   #center {

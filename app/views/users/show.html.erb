@@ -37,7 +37,12 @@
                     <div class="container col1 top-posters">
                         <div class="title">Top Posters</div>
                         <ul class="posterlist">
-                            <li>Name 1</li>
+                            <% @leaders.each do |leader| %>
+                            <li><%="#{leader["first_name"]} #{leader["last_name"]}: #{leader["count_user_id"]} posts" %>
+
+                            </li>
+                            <% end %>
+                            
                             <li>Name 1</li>
                             <li>Name 1</li>
                             <li>Name 1</li>

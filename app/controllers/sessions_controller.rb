@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def login
     api = UserApp::API.new
-    oauth_result = api.oauth.get_authorization_url(provider_id: "facebook", redirect_uri: "http://socialmedialeague.com/auth_step", scopes: ["read_friendlists", "read_stream", "read_insights"])
+    oauth_result = api.oauth.get_authorization_url(provider_id: "facebook", redirect_uri: "http://www.socialmedialeague.com/auth_step", scopes: ["read_friendlists", "read_stream", "read_insights"])
     redirect_to oauth_result.authorization_url
   end
 

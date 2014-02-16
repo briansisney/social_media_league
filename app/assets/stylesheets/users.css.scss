@@ -1,4 +1,3 @@
-
 body {
    font:1em/1.2em 'Arial',sans-serif;
    padding:0;margin:0;
@@ -28,7 +27,7 @@ body {
    width: 100%;
 }
    .main .menu {
-       width:200px;
+       width:200px;height:800px;
        background-color:#4C4F55;
 
        float:left;
@@ -39,14 +38,37 @@ body {
        }
        .main .menu > ul > li {
            border-bottom: 2px solid black;
-           padding-bottom:10px;
+           padding:5px 0 10px 50px;
+           font-weight:bold;
        }
        .main .menu ul ul {
            margin: 0 0 0 20px;
+           font-weight:normal;
        }
        .main .menu li {
            margin: 5px 0 5px 0;
        }
+       .main .menu > ul > li:nth-child(1) {
+           background:url(home.png) top left no-repeat;
+           color:white;
+       }
+       .main .menu > ul > li:nth-child(2) {
+           background:url(metrics.png) top left no-repeat;
+           color:#FFB98B;
+       }
+       .main .menu > ul > li:nth-child(3) {
+           background:url(leaderboard.png) top left no-repeat;
+           color:#00CDFC;
+       }
+       .main .menu > ul > li:nth-child(4) {
+           background:url(award.png) top left no-repeat;
+           color:#CB94FB;
+       }
+       .main .menu > ul > li:nth-child(5) {
+           background:url(settings.png) top left no-repeat;
+           color:white;
+       }
+
    .main .menu a {
        color:white;
        text-decoration:none;
@@ -83,17 +105,37 @@ body {
    font-size:1em;
 }
 
+
 .container .title {
    background-color:#333333;
    color:white;
    padding:3px;
 }
+.top-posters .title {
+   background:#333333 url(/top-posters.png) left top no-repeat;
+   padding:4px 4px 4px 30px;
+}
+
+.top-post {
+   width:234px;height:235px;background:url(/top-post.png) center 20px no-repeat;
+}
+.top-post .title {
+   background:#333333 url(/top-post-icon.png) left top no-repeat;
+   padding:4px 4px 4px 30px;
+}
+
+.overview {
+   width:234px;height:235px;background:url(/overview.png) center 30px no-repeat;
+}
+
 .container ul {
    list-style:none;
    margin:0;padding:0;
 }
 ul.posterlist li {
-   margin:0 1px;padding:3px;color:white;
+   margin:1px 0;padding:6px 6px 6px 30px;color:white;
+   background:url(Profile.png) 5px 5px no-repeat;
+   background-size:20px;
 }
 ul.posterlist li:nth-child(5n+0) {
    background-color:#FFCC9D;
@@ -111,21 +153,30 @@ ul.posterlist li:nth-child(5n+4) {
    background-color:#FF6669;
 }
 
+.leaderboard .title {
+   background:#333333 url(/leaderboard-icon.png) left top no-repeat;
+   padding:4px 4px 4px 30px;
+}
+
+.leaderboard ul li:nth-child(1) {
+   background:#FFCC9D url(team1.png) left center no-repeat;
+}
+.leaderboard ul li:nth-child(2) {
+   background:#D098FB url(team2.png) left center no-repeat;
+}
+.leaderboard ul li:nth-child(3) {
+   background:#93CC9C url(team3.png) left center no-repeat;
+}
 .leaderboard ul li {
-   margin:0 1px;padding:3px;color:white;
+   margin:1px 0;padding:10px 6px 10px 45px;color:white;
+   background-size:35px !important;
 }
-.leaderboard ul li:nth-child(5n+0) {
-   background-color:#FFCC9D;
+
+.badges .title {
+   background:#474747 url(/badge-icon.png) left top no-repeat;
+   padding:4px 4px 4px 30px;
 }
-.leaderboard ul li:nth-child(5n+1) {
-   background-color:#D098FB;
-}
-.leaderboard ul li:nth-child(5n+2) {
-   background-color:#93CC9C;
-}
-.leaderboard ul li:nth-child(5n+3) {
-   background-color:#46E0FD;
-}
-.leaderboard ul li:nth-child(5n+4) {
-   background-color:#FF6669;
+.badges img {
+   float: left;
+   padding: 10px;
 }

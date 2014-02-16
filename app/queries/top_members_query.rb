@@ -20,6 +20,11 @@ class TopMembersQuery
     Post.where(id: tophash.keys.first)
   end
   
-  
+  def leaderboard_hash
+    ActiveRecord::Base.connection.execute('SELECT COUNT("behaviors"."user_id") AS count_user_id, user_id AS user_id, users.first_name, users.last_name FROM "behaviors" INNER JOIN "users" ON "users"."id" = "behaviors"."user_id" GROUP BY user_id, users.first_name, users.last_name ORDER BY "behaviors"."count" DESC')
+  end
+
+
 
 end
+

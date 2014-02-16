@@ -12,26 +12,100 @@
  *= require_tree .
  */
 
-#topnav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 10%;
-  padding-top: 2%;
+.page-header {
+  margin-top: -20px;
   background-color: rgb(15, 148, 192);
   color:white;
-
-  #img {
-    margin-left: 5%;
+  #logo {
+    padding: 1em;
+    display: inline-block;
+    margin-top: 1.5em;
+    img {
+      display:inline;
+      height: 8em;
+      width: 8em;
+    }
+    h1 {
+      display:inline;
+      margin-left: 1em;
+      small {
+        color:white;
+      }
+    }
   }
-
   #userbox {
+    padding: 1em;
     float: right;
-    margin-right: 5%;
+    margin: 4.1em 5% 0 0;
     a {
       color:white;
       text-decoration: none;
     }
   }
 }
+
+#dashboard-nav {
+  position: fixed;
+  left:0;
+  top:10em;
+  bottom:0;
+  width: 10%;
+  background-color: rgb(15, 148, 192);
+}
+
+#body {
+  text-align: center;
+  #center {
+    #leaderboard {
+
+      .leaderbox {
+        width: 20%;
+        display: inline-block;
+      }
+    }
+    #charts {
+        min-height: 300px;
+        width: 90%;
+        margin:auto;
+      .thumbnail {
+        #placeholder {
+          height: 300px;
+          margin:auto;
+          text-align:center;
+        }
+        .color {
+          background-color: #97BBCD;
+        }
+        .color2 {
+          background-color: #DCDCDC;
+        }
+        p {
+          display: inline-block;
+          &:last-child {
+            margin-left:.5em;
+          }
+        }
+      }
+    }
+    #activity {
+      .opp {
+        margin: auto;
+        width: 80%;
+        .up-to-date {
+          text-align: center;
+        }
+      }
+      .action-opportunity {
+        text-align: left;
+        h2 {
+          display: inline-block;
+          a {}
+          &:last-child {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+

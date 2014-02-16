@@ -1,0 +1,117 @@
+<% if current_user %>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<div class="container" id="body">
+  <div id="center">
+    <div id="leaderboard">
+      <div class="row">
+        <h1>&quot;Team Name&quot; Leaders</h1>
+      </div>
+      <div class="leaderbox thumbnail">
+        <h3>Top Poster:</h3>
+        <h5>John Doe</h5>
+        <p>21 posts</p>
+      </div>
+      <div class="leaderbox thumbnail">
+        <h3>Top Poster:</h3>
+        <h5>John Doe</h5>
+        <p>21 posts</p>
+      </div>
+      <div class="leaderbox thumbnail">
+        <h3>Top Poster:</h3>
+        <h5>John Doe</h5>
+        <p>21 posts</p>
+      </div>
+    </div>
+    <div id="charts">
+        <div id="placeholder">
+        </div>
+        <div>
+          <p>
+            <form>
+              <label>Likes
+              <input class="filter" type="checkbox" value="Likes" checked="checked">
+              </label>
+              <label>Shares
+              <input class="filter" type="checkbox" value="Shares" checked="checked">
+              </label>
+            </form>
+          </p>
+        </div>
+    </div>
+    <div id="activity">
+      <div class="row">
+        <h1>Action Opportunities</h1>
+      </div>
+      <div class="opp">
+        <% if @opportunities %>
+          <% @opportunities.each do |opp| %>
+          <div class="row action-opportunity">
+            <h2><%= opp[0] %> made a <%= opp[1] %> which you haven't <%= opp[2] %>&nbsp;</h2><h2><small><a href="#" target="new">Take action</a></small></h2>
+          </div>
+          <% end %>
+          <% else %>
+            <div class="row up-to-date">
+              <h2>You're all up to date!</h2>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var shares = {id: "Shares",
+            name: 'Shares',
+            data: [2, 1, 2,8,3,1,2,2],
+            pointStart: Date.UTC(2010, 0, 1),
+            pointInterval: 24 * 3600 * 1000};
+
+var likes = {
+            id: "Likes",
+            name: 'Likes',
+            data: [1, 0, 4,6,3,0,1,5],
+            pointStart: Date.UTC(2010, 0, 1),
+            pointInterval: 24 * 3600 * 1000
+        }
+
+$(document).ready(function() {
+   $('#placeholder').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Actions'
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: {
+                day: '%e of %b',
+            }
+        },
+        yAxis: {
+          title: "Likes, Shares",
+          minRange: 5,
+                min: 0
+        },
+        series: [shares, likes],
+    });
+
+   $('.filter').click(function() {
+    var chart = $('#placeholder').highcharts();
+    var seriesName = $(this).val();
+    if ($(this).attr('checked') == "checked") {
+      $(this).attr('checked', false);
+      chart.get(seriesName).hide();
+    } else {
+      $(this).attr('checked', true);
+      chart.get(seriesName).show();
+    }
+  });
+
+  $('.filter:checked').each(function() {
+
+  });
+
+   $('tspan:contains("Highcharts.com")').text("");
+})
+</script>
+<% end %>

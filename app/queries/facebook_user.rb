@@ -9,6 +9,13 @@ class FacebookUser
       @data = graph_result.body.data 
     end 
   end 
+  # def get_accounts
+  #   graph_result =@api.oauth.request(provider_id: "facebook", user_id: "self", method: "get", path: "/me/accounts")
+  #   if graph_result.status_code = 200
+  #     @data = graph_result.body.data 
+  #   end 
+    
+  # end
 
   #TODO create User and Page registration controller
 
@@ -39,7 +46,8 @@ private
 
   def find_post(entry, page) 
     unless Post.where(entry_id: entry.id).first
-      Post.create(page_id: page, entry_id: entry.id, post_type: entry.type)
+      fb_post_time = Time.parse(entry.created_time)
+      Post.create(page_id: page.id, entry_id: entry.id, post_type: entry.type, fb_created_time: fb_post_time)
     end
     Post.where(entry_id: entry.id).first
   end
@@ -47,7 +55,7 @@ private
   def add_tag(entry, post)
     if entry.message_tags
       entry.message_tags.each_pair do |key, value|
-        Behavior.create(post_id: post, behavior_type: "tag", facebook_id: value[0].id )
+        Behavior.create(post_id: post.id, behavior_type: "tag", facebook_id: value[0].id )
       end
     end
   end
@@ -55,7 +63,7 @@ private
   def add_likes(entry, post)
     if entry.likes
       entry.likes.data.each do |user|
-        Behavior.create(post_id: post, behavior_type: "like", facebook_id: user.id )
+        Behavior.create(post_id: post.id, behavior_type: "like", facebook_id: user.id )
       end
     end
   end
@@ -63,7 +71,7 @@ private
   def add_comments(entry, post)
     if entry.comments
       entry.comments.data.each do |user|
-        Behavior.create(post_id: post, behavior_type: "comment", facebook_id: user.from.id )
+        Behavior.create(post_id: post.id, behavior_type: "comment", facebook_id: user.from.id )
       end
     end
   end

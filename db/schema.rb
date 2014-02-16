@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140215185039) do
     t.integer  "page_id"
     t.string   "entry_id"
     t.string   "post_type"
+    t.string   "fb_created_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,9 +56,11 @@ ActiveRecord::Schema.define(version: 20140215185039) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
     t.integer  "team_id"
-    t.string   "facebook_id"
+    t.string   "userapp_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
